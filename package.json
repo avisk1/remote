@@ -1,0 +1,61 @@
+{
+  "name": "text_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "build --mac --win --linux -p always",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps",
+    "install": "prebuild-install --tag-prefix @serialport/bindings@ || node-gyp rebuild"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "build": "^0.1.4",
+    "electron-updater": "^4.3.9",
+    "express": "^4.17.1",
+    "keytar": "^7.7.0",
+    "mongoose": "^5.13.0",
+    "pretty-ms": "^7.0.1",
+    "socket.io": "^4.1.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "electron": "^13.1.4",
+    "electron-builder": "^22.11.7"
+  },
+  "build": {
+    "appId": "com.ariskap.remote",
+    "productName": "Remote",
+    "directories": {
+      "output": "/dist",
+      "buildResources": "/",
+      "app": "/"
+    },
+    "win": {
+      "target": "NSIS",
+      "appId": "com.ariskap.remote"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "messaging",
+      "appId": "com.ariskap.remote"
+    },
+    "mac": {
+      "category": "messaging",
+      "appId": "com.ariskap.remote",
+      "target": "default"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "avisk1",
+        "repo": "remote"
+      }
+    ]
+  }
+}

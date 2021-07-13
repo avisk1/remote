@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'none'"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' http://127.0.0.1:27017 'unsafe-inline'">  -->
+    <!-- Fun fact: none of these help -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+
+
+    <!-- actually works ??-->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; script-src 'self' http://127.0.0.1/27017 'unsafe-inline';  media-src *"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;**script-src 'self' http://onlineerp.solution.quebec 'unsafe-inline' 'unsafe-eval';** "> -->
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+
+    <hr>
+    <div class="stuff-container">
+        <br />
+        <button title="I know, it's ugly" id="login-button">Login</button>
+        <button id="register-button">Register</button>
+        <button id="logout-button">Logout</button>
+        <button id="room-button">Join Room</button>
+        <select id="rooms">
+            <option value="messages">messages</option>
+        </select>
+        <br />
+        <br />
+
+        Logged in as: <input disabled id="name" placeholder="Name" />
+        <input id="message" placeholder="Message" />
+        <button id="send-button">Send</button>
+        <hr />
+
+        <p id="data"></p>
+    </div>
+    <!-- <script src="./messageHandler.js"></script> -->
+    <script src="./view.js"></script>
+    
+</body>
+
+
+
+
+</html>

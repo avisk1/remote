@@ -1,0 +1,1 @@
+I have no freaking clue what I'm doing, and electron-updater makes me want to throw my computer off a cliff.

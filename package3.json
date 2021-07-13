@@ -1,0 +1,61 @@
+{
+  "name": "remote",
+  "version": "1.0.0",
+  "description": "A test texting app",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "build --mac --win --linux -p always",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps",
+    "install": "prebuild-install --tag-prefix @serialport/bindings@ || node-gyp rebuild"
+  },
+  "author": "ArisKap",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "build": "^0.1.4",
+    "electron-updater": "^4.3.9",
+    "express": "^4.17.1",
+    "keytar": "^7.7.0",
+    "mongoose": "^5.13.0",
+    "pretty-ms": "^7.0.1",
+    "socket.io": "^4.1.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "electron-builder": "^22.11.7",
+    "electron": "^13.1.4"
+  },
+  "build": {
+    "productName": "Remote",
+    "appId": "com.ariskap.remote",
+    "mac": {
+      "category": "messaging"
+    },
+    "win": {
+      "publish": {
+        "provider": "generic",
+        "url": "https://ariskap.000webhostapp.com/flawfull"
+      },
+      "target": "NSIS"
+    },
+    "linux": {
+      "category": "messaging",
+      "target": "AppImage",
+      "publish": [
+        {
+          "provider": "generic",
+          "url": "https://ariskap.000webhostapp.com/flawfull"
+        }
+      ]
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://ariskap.000webhostapp.com/flawfull"
+      }
+    ]
+  }
+}
