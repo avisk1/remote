@@ -163,8 +163,8 @@ const loadingMessage = (message, modal) => {
     console.log(modal);
     modal.innerHTML = `<p>${message}...</p>`;
     console.log(modal.innerHTML);
-    //what the freaking heck
-    //this is by far the stupidest glitch I've ever encountered
+    //what the heck
+    //this is by far the most annoying and confusing glitch I've ever encountered
     const waiting = setInterval(() => {
         if (modal.innerHTML == `<p>${message}...</p>` || modal.innerHTML == `<p>${message}....</p>`) {
             let whatthefreakingheckisgoingon;

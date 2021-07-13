@@ -6,7 +6,6 @@ const keytar = require("keytar");
 
 const bcrypt = require("bcrypt");
 
-const fileSystem = require("./public/Functions/fileSystem.js");
 
 
 mongoose.set('useNewUrlParser', true);
@@ -36,7 +35,7 @@ function createWindow() {
             nodeIntegration: false,
             //I'm gonna regret this, aren't I
             //I hate Electron
-            //I spend more time dealing with Electron's stupid errors than actually programming my app 
+            //I spend more time dealing with Electron's stupid warnings than actually programming my app 
             //oh wait never mind I'm dumb
             enableRemoteModule: false,
             worldSafeExecuteJavaScript: true,
@@ -61,7 +60,6 @@ function createWindow() {
 app.on('ready', () => {
     createWindow();
 
-    //oh my gosh i actually hate electron so much
 //     const { session } = require('electron')
 
 // session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
@@ -107,7 +105,7 @@ app.on('ready', () => {
 
     const appData = app.getPath("userData");
 
-    fileSystem.initializeCache(path.join(appData, "cache.json"), appData);
+    // fileSystem.initializeCache(path.join(appData, "cache.json"), appData);
 
     // ipcMain.on('asynchronous-message', (event, arg) => {
     //     event.reply('asynchronous-reply', 'pong');
@@ -126,10 +124,6 @@ app.on('ready', () => {
 
     io.on("connect", (socket) => {
         // socket.emit("dm", "world");
-        // socket.on("test", (what) => {
-        //     console.log("I'M GONNA FREAKING LOSE IT")
-        //     socket.emit("dm", "freak");
-        // })
         // socket.on("send-request", (data) => {
         //     console.log("Send request received");
         //     console.log(data.message);
@@ -176,8 +170,6 @@ app.on('ready', () => {
         })
     });
 
-    //electron has so many freaking bugs I have to do everything myself
-    //literally the only way I can debug this "blank screen" is making a POST request
     // appExpress.post("/logger.js", (req, res) => {
     //     console.log("Wow we actually got a request");
     //     console.log(req.body);
