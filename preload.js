@@ -4,7 +4,9 @@
 
 //oh my gosh electron you're security warnings are so annoying
 
-const { contextBridge } = require('electron')
+const { contextBridge } = require('electron');
+
+//releaseType=release
 
 
 // ******** App System ******** \\
@@ -12,7 +14,7 @@ const { contextBridge } = require('electron')
 const mongoose = require("mongoose");
 const keytar = require("keytar");
 const os = require("os");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const { test } = require('./public/Functions/fileSystem');
 const saltRounds = 8;
 

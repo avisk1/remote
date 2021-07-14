@@ -1,0 +1,85 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\arisk\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'npm@latest'
+1 verbose cli ]
+2 info using npm@3.10.10
+3 info using node@v14.17.3
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData npm@latest
+8 silly fetchNamedPackageData npm
+9 silly mapToRegistry name npm
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'npm',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'npm',
+12 silly mapToRegistry   name: 'npm',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag'
+12 silly mapToRegistry }
+13 silly mapToRegistry uri https://registry.npmjs.org/npm
+14 verbose request uri https://registry.npmjs.org/npm
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 11:32:43 AM
+17 verbose request id e264847a2c258a3d
+18 http request GET https://registry.npmjs.org/npm
+19 http 200 https://registry.npmjs.org/npm
+20 verbose headers {
+20 verbose headers   date: 'Wed, 14 Jul 2021 15:32:45 GMT',
+20 verbose headers   'content-type': 'application/json',
+20 verbose headers   'transfer-encoding': 'chunked',
+20 verbose headers   connection: 'keep-alive',
+20 verbose headers   'cf-ray': '66ebce3909e3eff1-EWR',
+20 verbose headers   age: '5007',
+20 verbose headers   'cache-control': 'public, max-age=300',
+20 verbose headers   etag: 'W/"68e69ea1cf9f414e89cd128269c18645"',
+20 verbose headers   'last-modified': 'Thu, 01 Jul 2021 17:28:35 GMT',
+20 verbose headers   vary: 'accept-encoding, accept',
+20 verbose headers   'cf-cache-status': 'HIT',
+20 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+20 verbose headers   server: 'cloudflare',
+20 verbose headers   'content-encoding': 'gzip'
+20 verbose headers }
+21 silly get cb [
+21 silly get   200,
+21 silly get   {
+21 silly get     date: 'Wed, 14 Jul 2021 15:32:45 GMT',
+21 silly get     'content-type': 'application/json',
+21 silly get     'transfer-encoding': 'chunked',
+21 silly get     connection: 'keep-alive',
+21 silly get     'cf-ray': '66ebce3909e3eff1-EWR',
+21 silly get     age: '5007',
+21 silly get     'cache-control': 'public, max-age=300',
+21 silly get     etag: 'W/"68e69ea1cf9f414e89cd128269c18645"',
+21 silly get     'last-modified': 'Thu, 01 Jul 2021 17:28:35 GMT',
+21 silly get     vary: 'accept-encoding, accept',
+21 silly get     'cf-cache-status': 'HIT',
+21 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+21 silly get     server: 'cloudflare',
+21 silly get     'content-encoding': 'gzip'
+21 silly get   }
+21 silly get ]
+22 verbose get saving npm to C:\Users\arisk\AppData\Roaming\npm-cache\registry.npmjs.org\npm\.cache.json
+23 verbose correctMkdir C:\Users\arisk\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+24 verbose makeDirectory C:\Users\arisk\AppData\Roaming\npm-cache creation not in flight; initializing
+25 verbose makeCacheDir UID & GID are irrelevant on win32
+26 verbose stack TypeError: cb.apply is not a function
+26 verbose stack     at C:\Users\arisk\AppData\Roaming\npm\node_modules\npm\node_modules\graceful-fs\polyfills.js:267:18
+26 verbose stack     at FSReqCallback.oncomplete (fs.js:193:5)
+27 verbose cwd D:\Programming Projects\Remote
+28 error Windows_NT 10.0.19042
+29 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\arisk\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "npm@latest"
+30 error node v14.17.3
+31 error npm  v3.10.10
+32 error cb.apply is not a function
+33 error If you need help, you may report this error at:
+33 error     <https://github.com/npm/npm/issues>
+34 verbose exit [ 1, true ]

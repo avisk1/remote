@@ -1,11 +1,11 @@
 {
   "name": "text_app",
-  "version": "1.0.1",
-  "description": "",
+  "version": "1.0.2",
+  "description": "A texting app",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish": "build --mac --win --linux -p always",
+    "publish": "electron-builder --win --linux -p always",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "postinstall": "electron-builder install-app-deps",
@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "build": "^0.1.4",
     "electron-updater": "^4.3.9",
     "express": "^4.17.1",
@@ -32,9 +32,7 @@
     "appId": "com.ariskap.remote",
     "productName": "Remote",
     "directories": {
-      "output": "/dist",
-      "buildResources": "/",
-      "app": "/"
+      "output": "/dist"
     },
     "win": {
       "target": "NSIS",
