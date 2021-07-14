@@ -15,7 +15,6 @@ const mongoose = require("mongoose");
 const keytar = require("keytar");
 const os = require("os");
 const bcrypt = require("bcryptjs");
-const { test } = require('./public/Functions/fileSystem');
 const saltRounds = 8;
 
 //!!⚠⚠⚠!! - DON'T USE ALERT AS IT AFFECTS INPUT FIELDS IN ELECTRON - !!⚠⚠⚠!!
