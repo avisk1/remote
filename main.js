@@ -225,6 +225,8 @@ app.on('ready', () => {
         })
     });
 
-    appExpress.use("/", express.static("public"));
+    // appExpress.use("/", express.static("public"));
+    appExpress.use(express.static(__dirname + "/public"));
+    // appExpress.use(__dirname + '/public')
     server.listen(27017);    
 });
