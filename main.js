@@ -4,7 +4,8 @@ const path = require('path');
 const mongoose = require("mongoose");
 const keytar = require("keytar");
 
-const bcrypt = require("bcrypt");
+//GAHHHHHHHHHHH WHY ARE YOU HERE
+// const bcrypt = require("bcrypt");
 
 
 
