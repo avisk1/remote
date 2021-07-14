@@ -28,11 +28,11 @@ mongoose.set('useUnifiedTopology', true);
 
 const pass = keytar.getPassword("Remote", "Mongoose");
 //WHY DOES THIS EXIST (oh right, async bad)
-const asyncBad = new Promise((resolve, reject) => {
-    pass.then((data) => {
-        resolve(data);
-    })
-})
+// const asyncBad = new Promise((resolve, reject) => {
+//     pass.then((data) => {
+//         resolve(data);
+//     })
+// })
 
 let dbURL;
 let User;
@@ -40,7 +40,7 @@ let User;
 contextBridge.exposeInMainWorld('appSystem', {
     connectDatabase: async () => {
         const promiseBleh = new Promise((resolve, reject) => {
-            asyncBad.then((password) => {
+            pass.then((password) => {
                 const index = password.indexOf("/");
                 dbURL = `mongodb+srv://${password.slice(0, index)}:${password.slice(index + 1, password.length)}@cluster0.xpx7r.mongodb.net/siteDatabase?authSource=admin&w=1`;  
                 mongoose.connect(dbURL, { family: 4 }, () => {
