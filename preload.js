@@ -15,7 +15,6 @@ const mongoose = require("mongoose");
 const keytar = require("keytar");
 const os = require("os");
 const bcrypt = require("bcryptjs");
-const saltRounds = 8;
 
 //!!⚠⚠⚠!! - DON'T USE ALERT AS IT AFFECTS INPUT FIELDS IN ELECTRON - !!⚠⚠⚠!!
 
@@ -26,7 +25,24 @@ mongoose.set('useUnifiedTopology', true);
 
 // JUST A REMINDER THAT ALL MODAL FUNCTIONS CAN NOW BE CALLED WITH THE MODAL ARGUMENT, SO getSelectedModal...() WILL ALL BE DEPRECATED
 
-const pass = keytar.getPassword("Remote", "Mongoose");
+//I think every system I've used for this app has given me some sort of trouble, none of which were my fault
+//Let's see:
+//Mongoose, keytar, bcrypt, ELECTRON, git
+//10 to 1 this doesn't work
+//At this point I may as well have a bot that looks up my error messages, visits the first stack overflow and grabs the answer with the most upvotes
+//Actually that's a really good idea I'm gonna do that
+//I'll even make an npm package for it
+// keytar.setPassword('Remote', 'Mongoose', 'avisk1/whattoputhere3');
+//Are you telling me that it only sets the password locally? That completely defeats the point of an external password keeper
+//There is nothing in the docs at all about any of this
+//Time to get a new password keeper I guess
+//Fun fact, keytar is actually incredibly insecure, and isn't MEANT to be secure
+//So don't use it 
+// const pass = keytar.getPassword("Remote", "Mongoose");
+// pass.then((thing) => {
+//     console.log(thing);
+// })
+
 //WHY DOES THIS EXIST (oh right, async bad)
 // const asyncBad = new Promise((resolve, reject) => {
 //     pass.then((data) => {
@@ -37,19 +53,20 @@ const pass = keytar.getPassword("Remote", "Mongoose");
 let dbURL;
 let User;
 
+//Oh my gosh this is so easy WHY didn't I do this before
+const dbUsername = process.env.DB_USERNAME;
+const dbKey = process.env.DB_KEY;
+
 contextBridge.exposeInMainWorld('appSystem', {
     connectDatabase: async () => {
         const promiseBleh = new Promise((resolve, reject) => {
-            pass.then((password) => {
-                const index = password.indexOf("/");
-                dbURL = `mongodb+srv://${password.slice(0, index)}:${password.slice(index + 1, password.length)}@cluster0.xpx7r.mongodb.net/siteDatabase?authSource=admin&w=1`;  
-                mongoose.connect(dbURL, { family: 4 }, () => {
-                    console.log("Database connected")
-                    // modalSystem.alert("Database connected");
-                    User = mongoose.model("users", { name: String, password: String, email: String, os: Object, dateJoined: String, socketID: String });
-                    resolve();
-                });
-            })
+            dbURL = `mongodb+srv://${dbUsername}:${dbKey}@cluster0.xpx7r.mongodb.net/siteDatabase?authSource=admin&w=1`;  
+            mongoose.connect(dbURL, { family: 4 }, () => {
+                console.log("Database connected")
+                // modalSystem.alert("Database connected");
+                User = mongoose.model("users", { name: String, password: String, email: String, os: Object, dateJoined: String, socketID: String });
+                resolve();
+            });
         });
         return promiseBleh;
     },

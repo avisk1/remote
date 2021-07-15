@@ -562,7 +562,7 @@ function requestData(collection) {
     xhr.onreadystatechange = function() { 
         if (this.readyState == 4 && this.status == 200) {
             placeholder.innerHTML = "";
-            console.log(messages);
+            console.log(this.responseText);
             const messages = JSON.parse(this.responseText);
             for (let i = 0; i < messages.length; i++) {
                 placeholder.innerHTML = `${placeholder.innerHTML}${messages[i].name}: ${messages[i].message}<br />`;
